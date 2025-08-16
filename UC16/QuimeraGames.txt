@@ -1,3 +1,0 @@
-Projeto Web - construção de um site de vendas de jogos que contenha, tela inicial (Cadastro - Login), categorias de jogos,  
-Venda dos jogos com informações e requisitos de sistema, Biblioteca de jogos, Sistema de avaliação, Suporte, Barra de pesquisa e sobre nós.
-Projeto Offline - Sorteador de jogos por categoria e pelo Id da conta web, ou sorteador todos os jogos que tiver na web via categoria
