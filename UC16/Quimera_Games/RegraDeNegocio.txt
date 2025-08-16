@@ -1,0 +1,104 @@
+🎮 Regras de Negócio – Projeto Integrador UC16
+Sistemas:
+Plataforma Web de Venda de Jogos
+Sistema Offline de Sorteio de Jogos
+
+🔐 1. Cadastro de Usuário (Plataforma Web)
+O usuário poderá se cadastrar fornecendo:
+Nome completo (nome e sobrenome)
+Nome de usuário (único e utilizado para gerar um ID automático do usuário)
+E-mail válido (obrigatório para login e recuperação)
+Senha forte (mínimo 8 caracteres, incluindo letras e números)
+O sistema irá:
+Verificar se o e-mail já está cadastrado.
+Gerar um ID de usuário único baseado no nome de usuário (ex: usr_joaosilva123).
+Armazenar todos os dados no banco de dados SQL Server.
+
+🔐 2. Login de Usuário com Verificação
+O usuário faz login com:
+E-mail e senha
+Antes de efetuar o login:
+O sistema envia um código de verificação (token) por e-mail (simulado via back-end PHP).
+O usuário deve inserir corretamente o código para prosseguir com o login.
+O código tem validade temporária (ex: 5 minutos).
+Após validação, o acesso é liberado e a sessão iniciada.
+
+🛍️ 3. Loja de Jogos (Plataforma Web)
+3.1 Página Inicial
+Vitrine principal exibe:
+Um banner rotativo com jogos em destaque.
+Abaixo, listagem geral de jogos, com:
+Imagem da capa
+Título
+Preço
+Botões: [🛒 Comprar], [➕ Carrinho], [💖 Lista de Desejos]
+3.2 Cada Jogo Possui:
+Título, desenvolvedor e publicadora
+Categoria(s) e gênero(s)
+Descrição completa
+Avaliações (média de estrelas e comentários)
+Requisitos de sistema:
+Mínimos
+Recomendados
+Imagens e/ou vídeos promocionais
+Botões de:
+[Adicionar à Lista de Desejos]
+[Adicionar ao Carrinho]
+[Comprar Agora]
+
+🧾 4. Compra e Simulação de Pagamento
+Usuário pode comprar:
+Diretamente pela página do jogo
+Ou adicionando vários itens ao carrinho de compras
+Pagamento:
+Simulado (sem gateway real), apenas para fins de validação do processo.
+Após confirmar compra, os jogos são transferidos automaticamente para a biblioteca do usuário.
+O sistema atualiza:
+Inventário do usuário
+Histórico de compras
+
+📚 5. Biblioteca de Jogos
+Mostra todos os jogos comprados.
+Permite visualizar novamente informações dos jogos.
+É usada como base para o sistema offline de sorteio.
+
+💖 6. Lista de Desejos
+O usuário pode adicionar qualquer jogo à lista de desejos.
+A lista é salva no banco SQL Server.
+O sistema pode sugerir ofertas personalizadas com base nessa lista.
+
+🌟 7. Sistema de Avaliações
+Usuários podem:
+Avaliar os jogos com estrelas (1 a 5)
+Deixar um comentário (opcional)
+As avaliações são públicas e visíveis na página do jogo.
+A média de avaliações é calculada automaticamente.
+
+💻 Sistema Offline - Sorteador de Jogos
+
+🧩 1. Conexão com a Conta Web (Offline)
+O sistema offline permite:
+Inserir o ID da conta Web
+O sistema carrega localmente a biblioteca do usuário a partir de dados exportados do SQL Server (já salvos em arquivos JSON ou CSV previamente sincronizados).
+O ID será validado com os dados locais. Sem correspondência, exibe erro.
+
+🎲 2. Sorteador de Jogos
+A. Sorteio com base na conta Web
+Sorteia apenas os jogos da biblioteca do usuário.
+Após a verificação do ID, os jogos da conta são carregados.
+O usuário clica em Sortear Jogo, e o sistema escolhe aleatoriamente um jogo da lista.
+B. Sorteio de qualquer jogo da plataforma
+Outra aba permite o sorteio de qualquer jogo listado na plataforma (catálogo geral).
+É possível filtrar por:
+Gênero
+Categoria
+Requisitos
+O sorteio é feito com base no banco de dados offline (exportado).
+
+🔄 3. Dados Offline
+Todos os dados do sistema Web são exportados periodicamente do SQL Server.
+O sistema offline lê esses dados para:
+Verificar ID e biblioteca do usuário
+Carregar todos os jogos disponíveis
+O banco de dados não é conectado online – é apenas leitura dos dados exportados.
+ 

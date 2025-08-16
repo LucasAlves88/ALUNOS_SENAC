@@ -1,0 +1,162 @@
+Escopo
+ 
+🎯 Escopo do Projeto: Site de Vendas de Jogos
+🔧 Tecnologias Utilizadas
+Frontend: HTML, CSS, JavaScript
+Backend: PHP
+Banco de Dados: SQL Server
+
+🗂️ Módulos e Funcionalidades
+
+1. Tela Inicial
+Apresentação visual atrativa com destaques de jogos (banner/carrossel)
+Botões de Login e Cadastro
+Menu de navegação com links: Início | Categorias | Biblioteca | Avaliações | Suporte | Sobre Nós
+
+2. Sistema de Cadastro e Login
+Cadastro de usuário (nome, e-mail, senha, data nascimento etc.)
+Login com verificação no banco de dados
+Sessões PHP para manter usuário logado
+Validações com JavaScript e PHP
+
+3. Categorias de Jogos
+Lista de categorias (Ex: Ação, Aventura, RPG, Corrida etc.)
+Cada categoria exibe os jogos relacionados
+Filtro por categoria com JavaScript (dinâmico)
+
+4. Página de Vendas dos Jogos
+Listagem de jogos com:
+Capa do jogo
+Nome
+Preço
+Botão "Adicionar à Biblioteca"
+Página individual do jogo com:
+Descrição detalhada
+Requisitos mínimos e recomendados do sistema
+Screenshots e vídeos (embed YouTube opcional)
+Avaliações e comentários de usuários
+Sistema de pagamento simulado (não real)
+
+5. Biblioteca de Jogos do Usuário
+Exibição dos jogos adquiridos pelo usuário
+Filtragem e busca por título
+Links para visualizar novamente os detalhes ou reinstalar
+
+6. Sistema de Avaliação
+Usuário pode avaliar jogos (1 a 5 estrelas) e deixar comentários
+Exibição da média de avaliações na página do jogo
+Avaliações listadas com data, nome do usuário e comentário
+
+7. Sistema de Suporte
+Página com formulário de contato:
+Nome
+E-mail
+Categoria (Problema técnico, Dúvida, Sugestão)
+Mensagem
+Armazenamento das mensagens no banco de dados
+Exibição para administradores
+
+8. Barra de Pesquisa
+Campo de busca no topo do site
+Pesquisa em tempo real com JavaScript e AJAX (opcional)
+Resultados dinâmicos por nome do jogo
+
+9. Página “Sobre Nós”
+Informações sobre a empresa ou equipe do projeto
+Missão, visão, valores
+Redes sociais ou contato
+
+🗃️ Modelagem de Banco de Dados (SQL Server)
+Tabelas principais:
+usuarios (id, nome, email, senha, tipo_usuario, data_cadastro)
+jogos (id, nome, descricao, preco, requisitos_min, requisitos_rec, categoria_id, imagem_url, data_lancamento)
+categorias (id, nome)
+biblioteca (id, usuario_id, jogo_id, data_compra)
+avaliacoes (id, usuario_id, jogo_id, nota, comentario, data)
+suporte (id, usuario_id, categoria, mensagem, data)
+
+🔁 Fluxo do Usuário
+Acessa a tela inicial
+Realiza cadastro ou login
+Navega pelas categorias ou pesquisa por jogos
+Visualiza detalhes de um jogo
+Compra o jogo (simulado)
+Jogo aparece na biblioteca
+Pode avaliar o jogo
+Pode entrar em contato via suporte
+
+🎨 Design e Responsividade
+Layout responsivo com CSS (Flexbox, Grid)
+Design mobile-first
+Temas de cores baseados em jogos (ex: tons escuros, imagens de fundo)
+Uso de ícones (Font Awesome ou similar)
+
+📈 Possíveis Funcionalidades Futuras
+Carrinho de compras real
+Integração com gateway de pagamento
+Sistema de conquistas para usuários
+Painel administrativo para gerenciar jogos, usuários e suporte
+
+ 🎯 Escopo do Projeto: Sorteador de Jogos Offline
+
+🛠️ Objetivo Geral
+
+Criar um aplicativo/offline em PHP (com interface HTML/CSS/JavaScript) que sorteie jogos com base:
+Na categoria de jogos escolhida
+No ID da conta do usuário (vinculada ao sistema web)
+Ou que sorteie todos os jogos disponíveis na web por categoria
+
+🧱 Tecnologias Utilizadas
+
+Frontend: HTML + CSS + JavaScript
+Backend: PHP
+Fonte de Dados: Arquivo SQL  SERVER exportado da versão web
+
+📦 Funcionalidades
+
+1. Tela Inicial
+Interface simples e leve
+Campos de:
+Seleção de categoria (ComboBox)
+Campo para digitar o ID da conta
+Botão para sortear
+Resultados apresentados na mesma tela
+
+2. Modo de Sorteio
+Por categoria: o usuário escolhe uma categoria e clica em "Sortear"
+Por ID da conta: o sistema carrega os jogos da biblioteca daquele usuário e sorteia um aleatoriamente
+Sortear todos os jogos da web por categoria: opção extra que busca no arquivo com todos os jogos web, filtrando por categoria
+
+3. Fonte de Dados
+O sistema deve usar arquivos locais:
+jogos.json ou jogos.csv contendo: id, nome, categoria, requisitos, etc.
+usuarios.json ou usuarios.csv contendo: id_usuario, nome, jogos_adquiridos (lista de IDs)
+PHP faz o parsing dos arquivos e executa os sorteios com base nos filtros
+
+4. Resultado do Sorteio
+Exibe:
+Nome do jogo
+Categoria
+Capa (caso tenha link salvo)
+Requisitos mínimos
+Botão "Sortear novamente"
+
+5. Validações
+Verifica se o ID digitado existe
+Verifica se existem jogos na categoria escolhida
+Se não houver jogos suficientes, exibe mensagem personalizada
+
+🔄 Fluxo do Usuário
+Abre o app localmente (navegador)
+Seleciona modo de sorteio:
+Por categoria
+Por ID
+Todos os jogos por categoria
+Sistema busca nos dados locais (JSON ou CSV)
+Exibe o jogo sorteado
+Usuário pode sortear novamente ou mudar filtro
+Funcionalidades Futuras (Extras)
+Animação de sorteio com JavaScript
+Sistema de favoritos
+Salvar o histórico de sorteios
+Exportar resultados para PDF

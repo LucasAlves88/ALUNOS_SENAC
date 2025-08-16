@@ -1,0 +1,76 @@
+Jogos
+
+Id_play (pk)
+
+Titulo
+
+Categoria
+
+Desenvolvedora
+
+Publicadora
+
+Informações
+
+Requisitos de Sistema
+
+Cadastro
+
+Email
+
+Nome
+
+Nome d usuario
+
+Senha
+
+Url de foto
+
+Auth Terceiros
+
+CPF
+
+id_usuario(pk)
+
+compra
+
+id_compra (pk)
+
+id_play (fk)
+
+id_usuario (fk)
+
+valor_da_compra
+
+forma_de_pagamento
+
+data_da_compra
+
+Avaliação
+
+id_avaliacao (pk)
+
+id_usuario (fk)
+
+id_play (fk)
+
+nota
+
+comentário
+
+Minha_Biblioteca
+
+id_play (fk)
+
+id_compra (fk)
+
+id_usuario (fk)
+
+Lista_de_desejos
+
+id_desejos (pk)
+
+id_play (fk)
+
+id_usuario (fk)
+ 
